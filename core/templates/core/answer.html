@@ -10,7 +10,7 @@
 <div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl d-flex justify-content-center">
     <h1 class="mb-6 text-3xl text-center text-blue">Решили задачу!</h1>
     {% csrf_token %}
-    <p class="text-center">Вы ввели число: {{ question }}</p>
+    <p class="text-center">Вы ввели следующее число: {{ question }}</p>
     <p style="margin-top: 20px;"></p>
     <div class="row justify-content-center">
         <p class="text-center">Ответ: {{ answer }}</p>
