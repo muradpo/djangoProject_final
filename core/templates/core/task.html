@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% block title %}Task{% endblock %}
+{% block content %}
+<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl d-flex justify-content-center">
+    <h1 class="mb-6 text-3xl text-center" >Задача</h1>
+    <form action="{% url 'core:task' %}" method="post" class="text-center">
+        {% csrf_token %}
+        <p>Введите число:
+        </p>
+
+        <div class="mb-3">
+            {{ form.a }}
+            <p style="margin-top: 20px;"></p>
+        </div>
+        <input class="py-4 px-2 text-lg bg-teal-400 hover:bg-black-400 rounded-xl text-black" style="border: 2px solid grey;" type="submit" value="Получить ответ"  >
+
+    </form>
+</div>
+{% endblock %}

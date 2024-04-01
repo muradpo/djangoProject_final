@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+
+{% block title %}About Us{% endblock %}
+{% block content %}
+    <div style="text-align: center;">
+        <style>
+            .header-h1 {
+                text-align: center;
+            }
+            .header-h1 h1 {
+                display: inline-block;
+                background: #0097a7;
+                color: #fff;
+                margin-bottom: 0;
+                padding: .5rem 1rem .625rem 1rem;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                border-radius: 30px;
+            }
+
+            .verticalhorizontal {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 150px;
+            }
+        </style>
+        <div class="header-h1" >
+            <h1>About Us </h1>
+        </div>
+        <div class="container py-5">
+            <ul>
+                <li>Мое имя: {{ my.name }}</li>
+                <ul>
+                    <li>Email: {{ my.mail }}</li>
+                    <li>Телефон: {{ my.phone }}</li>
+
+                    <li><img src={{ my.imgurl }} height="150" style="margin: auto;"></li>
+                </ul>
+                <p style="margin-top: 50px;"></p>
+
+                <li>Название ОП: {{ program.name }}</li>
+                <ul>
+                    <li>Описание программы: {{ program.description }}</li>
+                </ul>
+                <li>Руководитель ОП: {{ program.ruk.name }}</li>
+                <ul>
+                    <li>Email: {{ program.ruk.mail }}</li>
+                    <li><img src={{ program.ruk.imgurl }} height="150" style="margin: auto;"></li>
+                </ul>
+                <p style="margin-top: 50px;"></p>
+
+                <li>Менеджер ОП: {{ program.man.name }}</li>
+                <ul>
+                    <li>Email: {{ program.man.mail }}</li>
+                    <li><img src={{ program.man.imgurl }} height="150" style="margin: auto;"></li>
+                </ul>
+                <p style="margin-top: 50px;"></p>
+
+                <li>Друг: {{ pal1.name }}</li>
+                <ul>
+                    <li>Email: {{ pal1.mail }}</li>
+                    <li>Телефон: {{ pal1.phone }}</li>
+                    <li><img src={{ pal1.imgurl }} height="150" style="margin: auto;"></li>
+                </ul>
+                <p style="margin-top: 50px;"></p>
+
+                <ul>
+                    <li>Друг: {{ pal2.name }}</li>
+                    <li>Email: {{ pal2.mail }}</li>
+                    <li>Телефон: {{ pal2.phone }}</li>
+                    <li><img src={{ pal2.imgurl }} height="150" style="margin: auto;"></li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

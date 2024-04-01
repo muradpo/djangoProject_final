@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block title %} Answer {%  endblock %}
+
+{% block content %}
+<style>
+    .center-button {
+        text-align: center;
+    }
+</style>
+<div class="w-1/2 my-6 mx-auto p-6 bg-gray-100 rounded-xl d-flex justify-content-center">
+    <h1 class="mb-6 text-3xl text-center text-blue">Решили задачу!</h1>
+    {% csrf_token %}
+    <p class="text-center">Вы ввели число: {{ question }}</p>
+    <p style="margin-top: 20px;"></p>
+    <div class="row justify-content-center">
+        <p class="text-center">Ответ: {{ answer }}</p>
+        <p style="margin-top: 35px;"></p>
+        <a href="{% url 'core:task' %}"
+           class="mx-auto py-4 px-8 text-lg bg-teal-400 hover:bg-teal-400 rounded-xl text-black" style="border: 2px solid grey; display: block;"  role="button">
+            <button class="py-4 px-2 text-lg bg-teal-400 hover:bg-black-400 rounded-xl text-black">Введу другое число!</button>
+
+        </a>
+    </div>
+</div>
+{% endblock %}

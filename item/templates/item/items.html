@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Items{% endblock %}
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-buttons, .search-buttons {
+    text-align: center;
+}
+
+.categories {
+    text-align: left;
+}
+{% block content %}
+    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+        <div class="col-span-1">
+            <form method="get" action="{% url 'item:items' %}">
+                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Искать кровать, платье, машину...">
+
+                <button style="margin-top: 20px; padding: 5px 10px; background-color: #00bbdc; color: white; border: none; border-radius: 5px;">Найти</button>
+            </form>
+
+            <hr class="my-6">
+
+            <p class="w-full py-4 px-6 border rounded-xl" style="border: 2px solid grey;">Категории</p>
+
+            <ul>
+                {% for category in categories %}
+                    <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}">
+                        <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <hr class="my-6">
+
+            <ul>
+                <li><a href="{% url 'item:items' %}" class="mt-2 py-4 px-8 inline-block bg-yellow-500 text-lg rounded-xl text-white">Очистить фильтры</a>
+        </div>
+
+        <div class="col-span-3">
+            <div class="grid grid-cols-3 gap-3">
+                {% for item in items %}
+                    <div>
+                        <a href="{% url 'item:detail' item.id %}">
+                            <div>
+                                <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            </div>
+
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-2xl">{{ item.name }}</h2>
+                                <p class="text-gray-500">Цена: {{ item.price }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
